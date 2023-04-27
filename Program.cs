@@ -14,9 +14,9 @@
             args[0] = Console.ReadLine();
             Console.WriteLine("Please type in the right ending of the house");
             args[1] = Console.ReadLine();
-            Console.WriteLine("Where is the orangetree?");
+            Console.WriteLine("Where is the orange tree?");
             args[2] = Console.ReadLine();
-            Console.WriteLine("Where is the appletree?");
+            Console.WriteLine("Where is the apple tree?");
             args[3] = Console.ReadLine();
             Console.WriteLine("You should have typed in four numbers until now, you typed in " + args.Length);
             //apples
@@ -25,11 +25,9 @@
             string[] applesArray = new string[Int32.Parse(m)];
             Console.WriteLine("Please fill in the thrown apples");
 
-            static void AppleCalculator(string m,Array applesArray) {
-                while (applesArray.Length <= Int32.Parse(m))
-                {
-                    
-                }
+            while (applesArray.Length <= Int32.Parse(m))
+            {
+                Console.WriteLine("Please fill in the thrown apples");
             }
 
             string leftHouseEndingParsed = args[0];
