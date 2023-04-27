@@ -23,13 +23,25 @@
             Console.WriteLine("How many apples do you want to fall down?");
             string m = Console.ReadLine();
             string[] applesArray = new string[Int32.Parse(m)];
-            Console.WriteLine("Please fill in the thrown apples");
+            //oranges
+            Console.WriteLine("How many oranges do you want to fall down?");
+            string n = Console.ReadLine();
+            string[] orangesArray = new string[Int32.Parse(n)];
 
+            int i = 0;
+            int t = 0;
+
+            Console.WriteLine("Please fill in the thrown apples");
             while (applesArray.Length <= Int32.Parse(m))
             {
-                Console.WriteLine("Please fill in the thrown apples");
+                applesArray[i] = Console.ReadLine();
+                i++;
             }
-
+            Console.WriteLine("Please fill in the thrown oranges");
+            while (orangesArray.Length <= int.Parse(n))
+            {
+                orangesArray[t] = Console.ReadLine();
+            }
             string leftHouseEndingParsed = args[0];
             string rightHouseEndingParsed = args[1];
             string orangeTreeParsed = args[2];
@@ -45,17 +57,15 @@
             
 
 
-            var oranges = new[] { 3, -2, -4 };
-            var apples = new[] { 2, 3, -4 };
-            Berechnung(leftHouseEnding, rightHouseEnding, orangeTree, appleTree, apples, oranges);
+            Berechnung(leftHouseEnding, rightHouseEnding, orangeTree, appleTree, applesArray, orangesArray);
         }
 
-        static void Berechnung(int leftHouseEnding, int rightHouseEnding, int orangeTree, int appleTree, int amountOfApples, int amountOfOranges, int[] apples, int[] oranges)
+        static void Berechnung(int leftHouseEnding, int rightHouseEnding, int orangeTree, int appleTree, int amountOfApples, int amountOfOranges, int[] applesArray, int[] orangesArray)
         {
-            var applesFallInHouse = apples.Select(item => item + appleTree)
+            var applesFallInHouse = applesArray.Select(item => item + appleTree)
                 .Where(item => item >= leftHouseEnding && item <= rightHouseEnding)
                 .ToArray();
-            var orangesFallInHouse = oranges.Select(item => item + orangeTree)
+            var orangesFallInHouse = orangesArray.Select(item => item + orangeTree)
                 .Where(item => item >= leftHouseEnding && item <= rightHouseEnding)
                 .ToArray();
             System.Console.WriteLine(applesFallInHouse.Length);
