@@ -1,0 +1,15 @@
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\bin\Debug\net7.0\CodingTask.exe
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\bin\Debug\net7.0\CodingTask.deps.json
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\bin\Debug\net7.0\CodingTask.runtimeconfig.json
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\bin\Debug\net7.0\CodingTask.dll
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\bin\Debug\net7.0\CodingTask.pdb
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.csproj.AssemblyReference.cache
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.AssemblyInfoInputs.cache
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.AssemblyInfo.cs
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.csproj.CoreCompileInputs.cache
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.dll
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\refint\CodingTask.dll
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.pdb
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\CodingTask.genruntimeconfig.cache
+C:\Users\Q537296\source\repos\CodingTask\CodingTask\obj\Debug\net7.0\ref\CodingTask.dll
