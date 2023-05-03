@@ -1,77 +1,52 @@
-﻿class RobinTraining
+﻿class Blackbox
 {
-    static void Main(string[] args)
+    public static void Main(String[] args)
     {
-        if (args == null)
+
+        //Input
+        //tree
+        Console.WriteLine("Where is your tree?");
+        string treeParsed = Console.ReadLine();
+        int tree = int.Parse(treeParsed);
+
+        //lefthouseEnding
+        Console.WriteLine("Where is the left ending of the house?");
+        string leftEndingParsed = Console.ReadLine();
+        int leftEnding = int.Parse(leftEndingParsed);
+
+        //righthouseEnding
+        Console.WriteLine("Where is the right ending of the house?");
+        string rightEndingParsed = Console.ReadLine();
+        int rightEnding = int.Parse(rightEndingParsed);
+        //amountOfEntities
+        Console.WriteLine("How much entities do you want to type in?");
+        string mP = Console.ReadLine();
+        int m = int.Parse(mP);
+
+        //entities
+        Console.WriteLine("Please type in your entities");
+        int[] entities = new int[m];
+        int i = 0;
+        while (entities.Length > i )
         {
-            Console.WriteLine("Bitte etwas eingeben"); // Check for null array
-        }
-        else
-        {
-            //Get Data
-            args = new string[4];
-            Console.WriteLine("Please type in the left ending of the house");
-            args[0] = Console.ReadLine();
-            Console.WriteLine("Please type in the right ending of the house");
-            args[1] = Console.ReadLine();
-            Console.WriteLine("Where is the orange tree?");
-            args[2] = Console.ReadLine();
-            Console.WriteLine("Where is the apple tree?");
-            args[3] = Console.ReadLine();
-            Console.WriteLine("You should have typed in four numbers until now, you typed in " + args.Length);
-            //apples
-            Console.WriteLine("How many apples do you want to fall down?");
-            string m = Console.ReadLine();
-            string[] applesArray = new string[Int32.Parse(m)];
-            //oranges
-            Console.WriteLine("How many oranges do you want to fall down?");
-            string n = Console.ReadLine();
-            string[] orangesArray = new string[Int32.Parse(n)];
-
-            int i = 0;
-            int t = 0;
-
-            Console.WriteLine("Please fill in the thrown apples");
-            while (applesArray.Length <= Int32.Parse(m))
-            {
-                applesArray[i] = Console.ReadLine();
-                i++;
-            }
-            Console.WriteLine("Please fill in the thrown oranges");
-            while (orangesArray.Length <= int.Parse(n))
-            {
-                orangesArray[t] = Console.ReadLine();
-            }
-            string leftHouseEndingParsed = args[0];
-            string rightHouseEndingParsed = args[1];
-            string orangeTreeParsed = args[2];
-            string appleTreeParsed = args[3];
-
-            int leftHouseEnding = Int32.Parse(leftHouseEndingParsed);
-            
-            int rightHouseEnding = Int32.Parse(rightHouseEndingParsed);
-            
-            
-            int orangeTree = Int32.Parse(orangeTreeParsed);
-            int appleTree = Int32.Parse(appleTreeParsed);
-            
-
-
-            Berechnung(leftHouseEnding, rightHouseEnding, orangeTree, appleTree, applesArray, orangesArray);
+            entities[i] = Int32.Parse(Console.ReadLine());
+            i++;
         }
 
-        static void Berechnung(int leftHouseEnding, int rightHouseEnding, int orangeTree, int appleTree, int amountOfApples, int amountOfOranges, int[] applesArray, int[] orangesArray)
-        {
-            var applesFallInHouse = applesArray.Select(item => item + appleTree)
-                .Where(item => item >= leftHouseEnding && item <= rightHouseEnding)
-                .ToArray();
-            var orangesFallInHouse = orangesArray.Select(item => item + orangeTree)
-                .Where(item => item >= leftHouseEnding && item <= rightHouseEnding)
-                .ToArray();
-            System.Console.WriteLine(applesFallInHouse.Length);
-            System.Console.WriteLine(orangesFallInHouse.Length);
-
-
-        }
+        int area = CountEntities(tree, leftEnding, rightEnding, entities);
+        Console.WriteLine(area);
     }
+    static int CountEntities(int tree, int leftHouseEnding, int rightHouseEnding, int[] entities)
+    {
+        int count = 0;
+        for (int i = 0; i < entities.Length; i++)
+        {
+            if (tree + entities[i] >= leftHouseEnding && tree + entities[i] <= rightHouseEnding)
+            { count++; }
+        }
+        return count;
+    }
+
 }
+
+
