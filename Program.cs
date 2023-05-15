@@ -1,69 +1,64 @@
-﻿class RobinTraining
+﻿using System;
+
+class Program
 {
     static void Main(string[] args)
     {
-        if (args == null)
-        {
-            Console.WriteLine("Bitte etwas eingeben"); // Check for null array
-        }
-        else
-        {
-            //Get Data
-            args = new string[4];
-            Console.WriteLine("Please type in the left ending of the house");
-            args[0] = Console.ReadLine();
-            Console.WriteLine("Please type in the right ending of the house");
-            args[1] = Console.ReadLine();
-            Console.WriteLine("Where is the orangetree?");
-            args[2] = Console.ReadLine();
-            Console.WriteLine("Where is the appletree?");
-            args[3] = Console.ReadLine();
-            Console.WriteLine("You should have typed in four numbers until now, you typed in " + args.Length);
-            //apples
-            Console.WriteLine("How many apples do you want to fall down?");
-            string m = Console.ReadLine();
-            string[] applesArray = new string[Int32.Parse(m)];
-            Console.WriteLine("Please fill in the thrown apples");
+        Console.Write("Enter the position of the apple tree: ");
+        int appleTree = int.Parse(Console.ReadLine());
 
-            static void AppleCalculator(string m,Array applesArray) {
-                while (applesArray.Length <= Int32.Parse(m))
-                {
-                    
-                }
+        Console.Write("Enter the position of the orange tree: ");
+        int orangeTree = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter the left end of the house: ");
+        int leftHouseending = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter the right end of the house: ");
+        int rightHouseending = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter the number of apples thrown: ");
+        int appleCount = int.Parse(Console.ReadLine());
+        int[] apples = new int[appleCount];
+
+        Console.WriteLine("Enter the apples:");
+
+        for (int i = 0; i < appleCount; i++)
+        {
+            apples[i] = int.Parse(Console.ReadLine());
+        }
+
+        Console.Write("Enter the number of oranges thrown: ");
+        int orangeCount = int.Parse(Console.ReadLine());
+        int[] oranges = new int[orangeCount];
+
+        Console.WriteLine("Enter the oranges:");
+
+        for (int i = 0; i < orangeCount; i++)
+        {
+            oranges[i] = int.Parse(Console.ReadLine());
+        }
+
+        int applesOnHouse = CountFruitsOnHouse(appleTree, leftHouseending, rightHouseending, apples);
+        int orangesOnHouse = CountFruitsOnHouse(orangeTree, leftHouseending, rightHouseending, oranges);
+
+        Console.WriteLine("Apples on house: " + applesOnHouse);
+        Console.WriteLine("Oranges on house: " + orangesOnHouse);
+    }
+
+    static int CountFruitsOnHouse(int treePosition, int leftHouseending, int rightHouseending, int[] fruits)
+    {
+        int count = 0;
+
+        for (int i = 0; i < fruits.Length; i++)
+        {
+            int fruitPosition = treePosition + fruits[i];
+
+            if (fruitPosition >= leftHouseending && fruitPosition <= rightHouseending)
+            {
+                count++;
             }
-
-            string leftHouseEndingParsed = args[0];
-            string rightHouseEndingParsed = args[1];
-            string orangeTreeParsed = args[2];
-            string appleTreeParsed = args[3];
-
-            int leftHouseEnding = Int32.Parse(leftHouseEndingParsed);
-            
-            int rightHouseEnding = Int32.Parse(rightHouseEndingParsed);
-            
-            
-            int orangeTree = Int32.Parse(orangeTreeParsed);
-            int appleTree = Int32.Parse(appleTreeParsed);
-            
-
-
-            var oranges = new[] { 3, -2, -4 };
-            var apples = new[] { 2, 3, -4 };
-            Berechnung(leftHouseEnding, rightHouseEnding, orangeTree, appleTree, apples, oranges);
         }
 
-        static void Berechnung(int leftHouseEnding, int rightHouseEnding, int orangeTree, int appleTree, int amountOfApples, int amountOfOranges, int[] apples, int[] oranges)
-        {
-            var applesFallInHouse = apples.Select(item => item + appleTree)
-                .Where(item => item >= leftHouseEnding && item <= rightHouseEnding)
-                .ToArray();
-            var orangesFallInHouse = oranges.Select(item => item + orangeTree)
-                .Where(item => item >= leftHouseEnding && item <= rightHouseEnding)
-                .ToArray();
-            System.Console.WriteLine(applesFallInHouse.Length);
-            System.Console.WriteLine(orangesFallInHouse.Length);
-
-
-        }
+        return count;
     }
 }
